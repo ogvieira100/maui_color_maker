@@ -62,13 +62,13 @@ public partial class MainPage : ContentPage
       SetColorElements();
     }
 
-    private  void  ImageButton_Clicked(object sender, EventArgs e)
+    private async  void  ImageButton_Clicked(object sender, EventArgs e)
     {
         Color color = GetColorHex();
 
         var colorHex = color.ToHex();
-        Clipboard.SetTextAsync(colorHex).Wait();
-        DisplayAlert("Atenção", $" Color Copied {colorHex}", "Ok").Wait();
+        await Clipboard.SetTextAsync(colorHex);
+        await DisplayAlert("Atenção", $" Color Copied {colorHex}", "Ok");
     }
 }
 
